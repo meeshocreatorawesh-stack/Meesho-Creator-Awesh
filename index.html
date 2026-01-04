@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Awesh | Professional Digital Promoter</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #007AFF;
+            --wa-green: #25D366;
+            --bg: #F2F2F7;
+            --card-bg: rgba(255, 255, 255, 0.9);
+            --text-dark: #1C1C1E;
+            --text-muted: #8E8E93;
+            --shadow: 0 8px 30px rgba(0,0,0,0.05);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        html, body {
+            width: 100%;
+            height: 100%;
+            overflow-x: hidden;
+            background-color: var(--bg);
+            color: var(--text-dark);
+            scroll-behavior: smooth;
+        }
+
+        .app-container {
+            width: 100%;
+            max-width: 480px;
+            margin: 0 auto;
+            min-height: 100vh;
+            padding: 0 16px 100px;
+            background: var(--bg);
+            position: relative;
+        }
+
+        /* --- HERO SECTION --- */
+        .hero {
+            padding: 50px 0 30px;
+            text-align: center;
+        }
+
+        .profile-badge {
+            width: 90px;
+            height: 90px;
+            background: linear-gradient(135deg, var(--primary), #5856D6);
+            border-radius: 28px;
+            margin: 0 auto 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 40px;
+            font-weight: 800;
+            box-shadow: 0 15px 35px rgba(0, 122, 255, 0.2);
+            transform: rotate(-3deg);
+        }
+
+        h1 {
+            font-size: 28px;
+            font-weight: 800;
+            margin-bottom: 5px;
+        }
+
+        .sub-heading {
+            color: var(--text-muted);
+            font-size: 14px;
+            margin-bottom: 25px;
+            line-height: 1.4;
+        }
+
+        /* --- BUTTONS WITH ICONS --- */
+        .btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            padding: 16px;
+            border-radius: 16px;
+            font-weight: 700;
+            text-decoration: none;
+            font-size: 15px;
+            margin-bottom: 12px;
+            transition: transform 0.2s;
+            border: none;
+            cursor: pointer;
+            width: 100%;
+        }
+
+        .btn svg {
+            width: 20px;
+            height: 20px;
+        }
+
+        .btn:active { transform: scale(0.97); }
+
+        .btn-insta { background: #000; color: white; }
+        .btn-wa-channel { background: var(--wa-green); color: white; }
+        .btn-collab { background: var(--primary); color: white; }
+
+        /* --- PREMIUM CARDS --- */
+        .card {
+            background: var(--card-bg);
+            backdrop-filter: blur(10px);
+            border-radius: 24px;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: var(--shadow);
+            border: 1px solid rgba(255,255,255,0.7);
+        }
+
+        .section-title {
+            font-size: 18px;
+            font-weight: 800;
+            margin: 30px 0 15px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        /* --- SERVICES GRID --- */
+        .services-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+        }
+
+        .service-item {
+            background: #fff;
+            padding: 15px;
+            border-radius: 20px;
+            border: 1px solid rgba(0,0,0,0.03);
+            text-align: center;
+        }
+
+        .service-icon {
+            font-size: 24px;
+            margin-bottom: 8px;
+            display: block;
+        }
+
+        .service-item p { font-size: 13px; font-weight: 700; }
+
+        /* --- INFO BOX (DARK) --- */
+        .dark-card {
+            background: #1C1C1E;
+            color: white;
+            border-radius: 24px;
+            padding: 20px;
+        }
+
+        .dark-card h3 { font-size: 16px; margin-bottom: 10px; color: var(--primary); }
+        .dark-card p { font-size: 13px; opacity: 0.8; }
+
+        /* --- FORM --- */
+        .form-group { margin-bottom: 14px; }
+        .form-group label {
+            display: block;
+            font-size: 11px;
+            font-weight: 700;
+            color: var(--text-muted);
+            margin-bottom: 5px;
+            text-transform: uppercase;
+        }
+        .form-control {
+            width: 100%;
+            padding: 14px;
+            border-radius: 12px;
+            border: 1px solid #E5E5EA;
+            background: #F9F9F9;
+            font-size: 15px;
+            outline: none;
+        }
+        .form-control:focus { border-color: var(--primary); }
+
+        /* --- FLOATING WHATSAPP --- */
+        .wa-fab {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 55px;
+            height: 55px;
+            background: var(--wa-green);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 8px 20px rgba(37, 211, 102, 0.3);
+            z-index: 1000;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.4); }
+            70% { transform: scale(1.05); box-shadow: 0 0 0 10px rgba(37, 211, 102, 0); }
+            100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px 0;
+            font-size: 11px;
+            color: var(--text-muted);
+            line-height: 1.6;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- WhatsApp FAB -->
+    <a href="https://wa.me/919905566290" class="wa-fab">
+        <svg fill="white" viewBox="0 0 24 24" style="width: 28px; height: 28px;"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L0 24l6.335-1.662c1.72.937 3.672 1.433 5.661 1.433h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+    </a>
+
+    <div class="app-container">
+        
+        <!-- HERO -->
+        <header class="hero">
+            <div class="profile-badge">A</div>
+            <h1>Awesh</h1>
+            <p class="sub-heading">Instagram Creator & Digital Promoter<br>Promoting Brands with High-Engagement Reels</p>
+            
+            <!-- Instagram Button with Icon -->
+            <a href="https://instagram.com/1tx_awesh" class="btn btn-insta">
+                <svg fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28-.073-1.689-.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+                Instagram Profile
+            </a>
+            
+            <!-- WhatsApp Channel with Icon -->
+            <a href="https://whatsapp.com/channel/0029Vb7JSFH7NoZrZcyt3m1S" class="btn btn-wa-channel">
+                <svg fill="white" viewBox="0 0 24 24"><path d="M12.041 21.93s-9.102-1.674-9.102-9.29V6.471l9.102-4.402 9.102 4.402v6.168c0 7.617-9.102 9.291-9.102 9.291zM4.975 7.424v5.217c0 5.253 5.414 6.942 7.066 7.505 1.652-.562 7.066-2.252 7.066-7.505V7.424l-7.066-3.414-7.066 3.414z"/></svg>
+                WhatsApp Channel
+            </a>
+            
+            <!-- Collab Button with Icon -->
+            <a href="#collab" class="btn btn-collab">
+                <svg fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+                Promotion/Collab Inquiry
+            </a>
+        </header>
+
+        <!-- SERVICES -->
+        <h2 class="section-title">🚀 My Services</h2>
+        <div class="services-grid">
+            <div class="service-item"><span class="service-icon">🎬</span><p>Reel Promotion</p></div>
+            <div class="service-item"><span class="service-icon">🤝</span><p>Brand Collab</p></div>
+            <div class="service-item"><span class="service-icon">✨</span><p>Product Awareness</p></div>
+            <div class="service-item"><span class="service-icon">📈</span><p>Affiliate Growth</p></div>
+        </div>
+
+        <!-- LINK INFO -->
+        <h2 class="section-title">🔗 Get Product Links</h2>
+        <div class="dark-card">
+            <h3>Important Information</h3>
+            <p>Links are NOT shared in personal chats. Please follow these steps:</p>
+            <div style="margin-top: 12px; font-size: 13px; line-height: 1.8;">
+                • Comment <b>"LINK"</b> on Instagram Post/Reel<br>
+                • Check <b>WhatsApp Channel</b> for all links
+            </div>
+        </div>
+
+        <!-- WORKING HOURS -->
+        <h2 class="section-title">⏰ Availability</h2>
+        <div class="card">
+            <div style="display: flex; justify-content: space-between; margin-bottom: 10px;">
+                <span style="font-weight: 700;">Mon - Sun</span>
+                <span style="color: var(--primary); font-weight: 700;">Active</span>
+            </div>
+            <p style="font-size: 13px; color: var(--text-muted);">
+                Morning: 09:00 AM – 01:00 PM<br>
+                Evening: 05:00 PM – 10:00 PM
+            </p>
+        </div>
+
+        <!-- COLLAB FORM -->
+        <h2 class="section-title">📬 Start Collaboration</h2>
+        <div class="card" id="collab">
+            <form id="waForm">
+                <div class="form-group">
+                    <label>Your Name</label>
+                    <input type="text" id="name" class="form-control" placeholder="Full Name" required>
+                </div>
+                <div class="form-group">
+                    <label>Brand Name</label>
+                    <input type="text" id="brand" class="form-control" placeholder="Company/Brand Name" required>
+                </div>
+                <div class="form-group">
+                    <label>WhatsApp Number</label>
+                    <input type="tel" id="phone" class="form-control" placeholder="+91" required>
+                </div>
+                <div class="form-group">
+                    <label>Collaboration Message</label>
+                    <textarea id="message" class="form-control" rows="3" placeholder="Explain your promotion details..." required></textarea>
+                </div>
+                <button type="submit" class="btn btn-wa-channel">
+                    <svg fill="white" viewBox="0 0 24 24" style="width: 18px; margin-right: 5px;"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L0 24l6.335-1.662c1.72.937 3.672 1.433 5.661 1.433h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+                    Submit to WhatsApp
+                </button>
+            </form>
+        </div>
+
+        <footer>
+            <p>This platform is for promotion & collaboration only.<br>No direct sales or payment collection.<br><b>© 2024 AWESH. All Rights Reserved.</b></p>
+        </footer>
+    </div>
+
+    <script>
+        document.getElementById('waForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const name = document.getElementById('name').value;
+            const brand = document.getElementById('brand').value;
+            const phone = document.getElementById('phone').value;
+            const message = document.getElementById('message').value;
+
+            const text = `*New Collaboration Inquiry*%0A%0A` +
+                         `*Name:* ${name}%0A` +
+                         `*Brand:* ${brand}%0A` +
+                         `*WhatsApp:* ${phone}%0A` +
+                         `*Message:* ${message}`;
+
+            window.open(`https://wa.me/919905566290?text=${text}`, '_blank');
+        });
+    </script>
+</body>
+</html>
